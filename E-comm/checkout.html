@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumea — Checkout</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="landing.css?v=2">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body class="checkout-page">
+    <header class="checkout-header">
+        <a href="landing.html?v=3" class="logo-container"
+            style="justify-content:center; margin-bottom: 40px; text-decoration: none;">
+            <img src="lumea logo.png" alt="Lumea" class="logo-image">
+        </a>
+        <h1 class="checkout-title" style="text-align:center;">Checkout</h1>
+        <div class="checkout-steps" id="checkout-steps">
+            <div class="step active" id="step-indicator-1">
+                <span class="step-num">1</span>
+                <span>Information</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step-indicator-2">
+                <span class="step-num">2</span>
+                <span>Shipping</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" id="step-indicator-3">
+                <span class="step-num">3</span>
+                <span>Payment</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="checkout-body" id="checkout-wizard">
+        <div class="checkout-main">
+            <!-- Step 1: Info -->
+            <div id="step-1-content">
+                <h2 class="checkout-section-title">Contact Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" id="co-fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" id="co-lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="co-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" id="co-phone" required>
+                    </div>
+                </div>
+
+                <h2 class="checkout-section-title" style="margin-top: 40px;">Shipping Address</h2>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label>Street Address *</label>
+                    <input type="text" id="co-street" required>
+                </div>
+                <div class="form-grid three">
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input type="text" id="co-city" required>
+                    </div>
+                    <div class="form-group">
+                        <label>State *</label>
+                        <input type="text" id="co-state" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ZIP Code *</label>
+                        <input type="text" id="co-zip" required>
+                    </div>
+                </div>
+
+                <div class="checkout-actions">
+                    <button class="btn-back" onclick="window.location.href='cart.html?v=3'">Back to Cart</button>
+                    <button class="btn-continue" onclick="nextStep(2)">Continue to Shipping</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Shipping -->
+            <div id="step-2-content" style="display:none;">
+                <h2 class="checkout-section-title">Shipping Method</h2>
+
+                <div class="radio-option selected" id="shipping-standard" onclick="selectShipping('standard', 9.99)">
+                    <div class="radio-left">
+                        <div class="radio-circle"></div>
+                        <div>
+                            <div class="radio-title">Standard Shipping</div>
+                            <div class="radio-desc">5-7 business days</div>
+                        </div>
+                    </div>
+                    <div class="radio-price">₱9.99</div>
+                </div>
+
+                <div class="radio-option" id="shipping-express" onclick="selectShipping('express', 19.99)">
+                    <div class="radio-left">
+                        <div class="radio-circle"></div>
+                        <div>
+                            <div class="radio-title">Express Shipping</div>
+                            <div class="radio-desc">2-3 business days</div>
+                        </div>
+                    </div>
+                    <div class="radio-price">₱19.99</div>
+                </div>
+
+                <div class="radio-option" id="shipping-overnight" onclick="selectShipping('overnight', 39.99)">
+                    <div class="radio-left">
+                        <div class="radio-circle"></div>
+                        <div>
+                            <div class="radio-title">Overnight Shipping</div>
+                            <div class="radio-desc">Next business day</div>
+                        </div>
+                    </div>
+                    <div class="radio-price">₱39.99</div>
+                </div>
+
+                <div class="checkout-actions">
+                    <button class="btn-back" onclick="nextStep(1)">Back</button>
+                    <button class="btn-continue" onclick="nextStep(3)">Continue to Payment</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment -->
+            <div id="step-3-content" style="display:none;">
+                <h2 class="checkout-section-title">Payment Method</h2>
+
+                <div class="payment-methods">
+                    <div class="pm-tab active" id="pm-tab-card" onclick="selectPayment('card')">
+                        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                        Credit Card
+                    </div>
+                    <div class="pm-tab" id="pm-tab-gcash" onclick="selectPayment('gcash')">
+                        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                        GCash
+                    </div>
+                    <div class="pm-tab" id="pm-tab-cod" onclick="selectPayment('cod')">
+                        <svg viewBox="0 0 24 24" fill="none" width="20" height="20" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 8v8M8 12h8"></path>
+                        </svg>
+                        Cash on Delivery
+                    </div>
+                </div>
+
+                <div id="pm-card-form">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label>Card Number *</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" id="co-card-num">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label>Card Holder Name *</label>
+                        <input type="text" id="co-card-name">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Expiry Date *</label>
+                            <input type="text" placeholder="MM/YY" id="co-card-exp">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV *</label>
+                            <input type="text" placeholder="123" id="co-card-cvv">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pm-gcash-form" style="display:none;">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label>GCash Mobile Number *</label>
+                        <input type="tel" placeholder="09XX XXX XXXX" id="co-gcash-num">
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--color-text-light); line-height: 1.5;">You will be
+                        redirected to the GCash portal securely to authenticate your payment after placing the order.
+                    </p>
+                </div>
+
+                <div id="pm-cod-form" style="display:none;">
+                    <p style="font-size: 0.95rem; color: var(--color-text-main); font-weight: 500; line-height: 1.5;">
+                        You have selected Cash on Delivery. Please have the exact change ready upon delivery.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 10px;">
+                        Note: Additional processing time may apply to COD orders.
+                    </p>
+                </div>
+
+                <div class="checkout-actions">
+                    <button class="btn-back" onclick="nextStep(2)">Back</button>
+                    <button class="btn-continue" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="order-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div class="summary-items" id="co-summary-items">
+                <!-- JS populated -->
+            </div>
+            <div class="summary-totals">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="co-subtotal">₱0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="co-shipping-fee">₱9.99</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (8%)</span>
+                    <span id="co-tax">₱0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="co-total">₱0.00</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Confirmation Screen (Hidden by default) -->
+    <div id="confirmation-view" style="display:none;">
+        <div class="confirmation-screen">
+            <div class="check-icon-large">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h2 class="conf-title">Your order has been confirmed!</h2>
+            <p class="conf-desc">Thank you for your purchase. We've received your order and will begin processing it
+                shortly.</p>
+
+            <div class="order-num-box">
+                <div class="order-num-label">Your order number is</div>
+                <div class="order-num-value" id="conf-order-num">ORD-003</div>
+                <div class="order-num-sub">A confirmation email has been sent to your email address with additional
+                    order details.</div>
+            </div>
+
+            <div class="conf-status-boxes">
+                <div class="conf-status-box">
+                    <div class="conf-status-icon">
+                        <svg viewBox="0 0 24 24" fill="none" width="32" height="32" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="conf-status-title">Estimated Delivery</div>
+                    <div class="conf-status-value" id="conf-est-delivery">Mar 12-14, 2026</div>
+                </div>
+            </div>
+
+            <p style="margin-bottom: 24px; color: var(--color-text-main); font-weight: 600;">In the meantime, you can:
+            </p>
+            <div class="conf-buttons">
+                <!-- Track Your Order functionality was merged with View Your Order as requested -->
+                <a href="orders.html?v=3" class="btn-continue"
+                    style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                    View Your Order Details
+                    <svg viewBox="0 0 24 24" fill="none" width="16" height="16" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="shop.html?v=3" class="btn-continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="db-config.js"></script>
+    <script src="db.js"></script>
+    <script src="data.js?v=3"></script>
+    <script src="auth.js"></script>
+    <script src="store.js"></script>
+    <script src="checkout.js"></script>
+</body>
+
+</html>

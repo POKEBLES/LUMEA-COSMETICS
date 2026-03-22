@@ -1,0 +1,577 @@
+/* ============================================================
+auth.css — Lumea Login & Sign Up Page (Modern Overhaul)
+============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    /* Unified Lumea Color System */
+    --color-primary: #d4724e;               /* Terracotta — primary action color */
+    --color-primary-hover: #bf5e3a;
+    --color-primary-light: #f9ede6;
+    --color-accent: #e8aa88;               /* Peach */
+    --color-accent-light: #f9ede6;
+    --color-bg: #fffbf5;
+    --color-hero-bg: #fffbf5;
+    --color-background-alt: #e8d9c8;
+    --color-text-main: #3d3530;
+    --color-text-light: #7a726c;
+    --color-text-muted: #b5a99e;
+    --color-border: #e0d0c0;
+    --color-border-light: #e8d9c8;
+    --color-error: #8a3322;
+    --color-error-bg: rgba(212,114,78,0.08);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 40px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.07);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Layout & Container ───────────────────────── */
+.auth-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #fffbf5 0%, #e8d9c8 60%, #f9ede6 100%); /* Palette only, no green */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Your Decorative Blobs */
+.auth-page::before,
+.auth-page::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.auth-page::before {
+    width: 500px;
+    height: 500px;
+    background: rgba(232, 170, 136, 0.2); /* Peach blob */
+    top: -150px;
+    right: -100px;
+}
+
+.auth-page::after {
+    width: 400px;
+    height: 400px;
+    background: rgba(196, 137, 106, 0.15);
+    bottom: -120px;
+    left: -80px;
+}
+
+/* ─── Split Screen Card ────────────────────────── */
+.auth-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 1000px;
+    /* Widened for split screen */
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    min-height: 600px;
+    animation: cardFadeIn 0.4s ease;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Editorial Image Side */
+.auth-image-side {
+    flex: 1;
+    /* You can replace this URL with one of your own brand images */
+    background: url('https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .auth-image-side {
+        display: block;
+    }
+}
+
+/* Form Side */
+.auth-form-side {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ─── Back Link & Logo ─────────────────────────── */
+.auth-back-link {
+    position: absolute;
+    top: 24px;
+    left: 30px;
+    color: var(--color-text-light);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.auth-back-link:hover {
+    color: var(--color-primary);
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 36px;
+    text-decoration: none;
+}
+
+.auth-logo-image {
+    width: 170px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ─── Typography & Panels ──────────────────────── */
+.auth-heading {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-text-main);
+    margin-bottom: 6px;
+}
+
+.auth-subheading {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+}
+
+.auth-panel {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.auth-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Forms & Inputs ───────────────────────────── */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 14px;
+}
+
+.form-row .field-group {
+    flex: 1;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.field-group input,
+.field-group select {
+    padding: 12px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    background: white;
+    transition: var(--transition);
+    outline: none;
+    width: 100%;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(212, 114, 78, 0.12);
+}
+
+.field-group input.error,
+.field-group select.error {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+}
+
+.field-error {
+    font-size: 0.78rem;
+    color: var(--color-error);
+    display: none;
+}
+
+.field-error.visible {
+    display: block;
+}
+
+.select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* ─── Buttons & Alerts ─────────────────────────── */
+.btn-auth {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+}
+
+.btn-auth:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212, 114, 78, 0.2);
+}
+
+.auth-toggle-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-top: 20px;
+}
+
+.toggle-btn {
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+}
+
+.toggle-btn:hover {
+    text-decoration: underline;
+}
+
+.auth-alert {
+    display: none;
+    background: var(--color-error-bg);
+    border: 1px solid rgba(232,170,136,0.35);
+    color: var(--color-error);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.auth-success {
+    display: none;
+    background: rgba(173,194,145,0.15);
+    border: 1px solid rgba(173,194,145,0.35);
+    color: #6a824b; /* Darker sage for readable success text */
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.auth-alert.visible,
+.auth-success.visible {
+    display: block;
+}
+
+/* ============================================================
+YOUR GLOBAL NAV & MODAL STYLES (DO NOT REMOVE)
+============================================================ */
+
+.nav-login-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 18px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-login-link:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.nav-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-avatar:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.nav-profile-dropdown {
+    position: fixed;
+    min-width: 220px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    overflow: hidden;
+    animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-user-info {
+    padding: 18px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dropdown-user-info strong {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+}
+
+.dropdown-user-info small {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.dropdown-account-type {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.dropdown-account-type.customer {
+    background: rgba(173,194,145,0.15);
+    color: #6a824b; /* Darker sage for readability */
+}
+
+.dropdown-account-type.admin {
+    background: rgba(232,170,136,0.15);
+    color: #bf5e3a;
+}
+
+.dropdown-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 0;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.login-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.login-modal-overlay.active {
+    display: flex;
+}
+
+.login-modal-card {
+    background: white;
+    border-radius: 16px;
+    padding: 48px 40px;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.login-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+}
+
+.login-modal-close:hover {
+    color: #333;
+}
+
+.login-modal-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color:
+        var(--color-text-main);
+}
+
+.login-modal-card p {
+    color: var(--color-text-light);
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.login-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 13px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-modal-btn.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.login-modal-btn.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 560px) {
+    .auth-form-side {
+        padding: 36px 24px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}

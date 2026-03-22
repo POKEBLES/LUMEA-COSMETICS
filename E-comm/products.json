@@ -1,0 +1,393 @@
+[
+    {
+        "id": 1,
+        "name": "Precision Eyeliner",
+        "category": "eyes",
+        "price": 160.0,
+        "rating": 4.1,
+        "ratingCount": 65,
+        "featured": true,
+        "imageUrl": "products-display/1-eyes.png",
+        "images": [
+            "products-display/1-eyes.png"
+        ],
+        "description": "Premium eyes product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 2,
+        "name": "Luminous Foundation",
+        "category": "face",
+        "price": 170.0,
+        "rating": 4.2,
+        "ratingCount": 80,
+        "featured": true,
+        "imageUrl": "products-display/1-face.png",
+        "images": [
+            "products-display/1-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 3,
+        "name": "Velvet Matte Lipstick",
+        "category": "lips",
+        "price": 180.0,
+        "rating": 4.3,
+        "ratingCount": 95,
+        "featured": true,
+        "imageUrl": "products-display/1-lips.png",
+        "images": [
+            "products-display/1-lips.png"
+        ],
+        "description": "Premium lips product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 4,
+        "name": "Soft Focus Powder",
+        "category": "face",
+        "price": 190.0,
+        "rating": 4.4,
+        "ratingCount": 110,
+        "featured": true,
+        "imageUrl": "products-display/10-face.png",
+        "images": [
+            "products-display/10-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 5,
+        "name": "Volumizing Mascara",
+        "category": "eyes",
+        "price": 200.0,
+        "rating": 4.5,
+        "ratingCount": 125,
+        "featured": false,
+        "imageUrl": "products-display/2-eyes.png",
+        "images": [
+            "products-display/2-eyes.png"
+        ],
+        "description": "Premium eyes product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 6,
+        "name": "Velvet Setting Powder",
+        "category": "face",
+        "price": 210.0,
+        "rating": 4.6,
+        "ratingCount": 140,
+        "featured": false,
+        "imageUrl": "products-display/2-face.png",
+        "images": [
+            "products-display/2-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 7,
+        "name": "Hydrating Lip Gloss",
+        "category": "lips",
+        "price": 220.0,
+        "rating": 4.7,
+        "ratingCount": 155,
+        "featured": false,
+        "imageUrl": "products-display/2-lips.png",
+        "images": [
+            "products-display/2-lips.png"
+        ],
+        "description": "Premium lips product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 8,
+        "name": "Radiant Eye Palette",
+        "category": "eyes",
+        "price": 230.0,
+        "rating": 4.8,
+        "ratingCount": 170,
+        "featured": false,
+        "imageUrl": "products-display/3-eyes.png",
+        "images": [
+            "products-display/3-eyes.png"
+        ],
+        "description": "Premium eyes product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 9,
+        "name": "Radiant Blush",
+        "category": "face",
+        "price": 240.0,
+        "rating": 4.9,
+        "ratingCount": 185,
+        "featured": false,
+        "imageUrl": "products-display/3-face.png",
+        "images": [
+            "products-display/3-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 10,
+        "name": "Tinted Lip Balm",
+        "category": "lips",
+        "price": 250.0,
+        "rating": 4.0,
+        "ratingCount": 200,
+        "featured": false,
+        "imageUrl": "products-display/3-lips.png",
+        "images": [
+            "products-display/3-lips.png"
+        ],
+        "description": "Premium lips product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 11,
+        "name": "Glow Highlighter",
+        "category": "face",
+        "price": 260.0,
+        "rating": 4.1,
+        "ratingCount": 215,
+        "featured": false,
+        "imageUrl": "products-display/4-face.png",
+        "images": [
+            "products-display/4-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 12,
+        "name": "Classic Lip Liner",
+        "category": "lips",
+        "price": 270.0,
+        "rating": 4.2,
+        "ratingCount": 230,
+        "featured": false,
+        "imageUrl": "products-display/4-lips.png",
+        "images": [
+            "products-display/4-lips.png"
+        ],
+        "description": "Premium lips product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 13,
+        "name": "Flawless Concealer",
+        "category": "face",
+        "price": 280.0,
+        "rating": 4.3,
+        "ratingCount": 245,
+        "featured": false,
+        "imageUrl": "products-display/5-face.png",
+        "images": [
+            "products-display/5-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 14,
+        "name": "Perfecting Primer",
+        "category": "face",
+        "price": 290.0,
+        "rating": 4.4,
+        "ratingCount": 260,
+        "featured": false,
+        "imageUrl": "products-display/6-face.png",
+        "images": [
+            "products-display/6-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 15,
+        "name": "Liquid Contour",
+        "category": "face",
+        "price": 300.0,
+        "rating": 4.5,
+        "ratingCount": 275,
+        "featured": false,
+        "imageUrl": "products-display/7-face.png",
+        "images": [
+            "products-display/7-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 16,
+        "name": "Matte Bronzer",
+        "category": "face",
+        "price": 310.0,
+        "rating": 4.6,
+        "ratingCount": 290,
+        "featured": false,
+        "imageUrl": "products-display/8-face.png",
+        "images": [
+            "products-display/8-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    },
+    {
+        "id": 17,
+        "name": "Dewy Setting Spray",
+        "category": "face",
+        "price": 320.0,
+        "rating": 4.7,
+        "ratingCount": 305,
+        "featured": false,
+        "imageUrl": "products-display/9-face.png",
+        "images": [
+            "products-display/9-face.png"
+        ],
+        "description": "Premium face product carefully crafted for the best results.",
+        "details": [
+            "High quality ingredients",
+            "Cruelty-free",
+            "Long-lasting wear"
+        ],
+        "options": [
+            "Default"
+        ],
+        "reviews": []
+    }
+]

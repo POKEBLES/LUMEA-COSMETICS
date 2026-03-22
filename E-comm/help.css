@@ -1,0 +1,280 @@
+/* ============================================================
+   help.css — Lumea Help Center Page
+   ============================================================ */
+
+.help-page {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 5%;
+}
+
+.help-section {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light);
+    transition: var(--transition);
+}
+
+.help-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.help-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-text-main);
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.help-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+}
+
+/* Contact Cards */
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.contact-card {
+    background: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid var(--color-border-light);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    padding: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: var(--shadow-xs);
+}
+
+.contact-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+}
+
+.contact-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/* FAQ Accordion */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    background-color: var(--color-background-alt);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    border-color: var(--color-primary);
+}
+
+.faq-item.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgba(92, 140, 110, 0.1);
+}
+
+.faq-header {
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.93rem;
+    transition: background-color 0.2s;
+    user-select: none;
+    color: var(--color-text-main);
+}
+
+.faq-header:hover {
+    background-color: var(--color-primary-light);
+}
+
+.faq-header::after {
+    content: '+';
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-header::after {
+    transform: rotate(45deg);
+    background: var(--color-primary);
+    color: white;
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+    color: var(--color-text-light);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-content {
+    padding: 0 22px 22px;
+    max-height: 300px;
+}
+
+/* Help Form */
+.help-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-background-alt);
+    font-family: inherit;
+    font-size: 0.93rem;
+    transition: var(--transition);
+    outline: none;
+    color: var(--color-text-main);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(92, 140, 110, 0.12);
+    background: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-form {
+    padding: 13px 28px;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+    color: white;
+    box-shadow: 0 4px 14px rgba(92, 140, 110, 0.25);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(92, 140, 110, 0.35);
+}
+
+.btn-reset {
+    background-color: white;
+    color: var(--color-text-main);
+    border: 1.5px solid var(--color-border);
+}
+
+.btn-reset:hover {
+    background-color: var(--color-background-alt);
+    border-color: var(--color-text-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .help-section {
+        padding: 28px;
+    }
+}

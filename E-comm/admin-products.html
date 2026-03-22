@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumea Admin — Products</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="admin.css?v=2">
+</head>
+
+<body class="admin-body">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <a href="landing.html?v=3" class="admin-logo">
+            <img src="lumea logo.png" alt="Lumea" class="admin-logo-image">
+        </a>
+        <nav class="admin-nav">
+            <div class="admin-nav-label">Main</div>
+            <a href="admin-overview.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Overview
+            </a>
+            <a href="admin-products.html?v=3" class="admin-nav-item active">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                Products
+            </a>
+            <a href="admin-orders.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                Orders
+            </a>
+            <a href="admin-users.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 010 7.75"></path>
+                </svg>
+                Users
+            </a>
+
+            <hr class="admin-nav-divider">
+            <div class="admin-nav-label">Account</div>
+            <a href="profile.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                My Profile
+            </a>
+            <a href="help.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Help
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+        <div class="admin-topbar">
+            <div class="admin-topbar-title">Products</div>
+            <div class="admin-topbar-right">
+                <a href="profile.html?v=3" class="admin-back-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Back to Profile
+                </a>
+                <button id="add-product-btn" class="btn-admin-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Product
+                </button>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="admin-card">
+                <!-- Toolbar -->
+                <div class="admin-toolbar">
+                    <div class="admin-search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="product-search" placeholder="Search products..."
+                            oninput="renderProducts()">
+                    </div>
+                    <select class="admin-filter-select" id="cat-filter" onchange="renderProducts()">
+                        <option value="">All Categories</option>
+                        <option value="face">Face</option>
+                        <option value="eyes">Eyes</option>
+                        <option value="lips">Lips</option>
+                    </select>
+                    <select class="admin-filter-select" id="status-filter" onchange="renderProducts()">
+                        <option value="">All Status</option>
+                        <option value="In Stock">In Stock</option>
+                        <option value="Low Stock">Low Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                    </select>
+                </div>
+
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="admin-toast" style="
+        position:fixed;bottom:32px;right:32px;z-index:9999;
+        background:#1a1a1a;color:#fff;padding:14px 24px;
+        border-radius:10px;font-size:0.9rem;font-weight:500;
+        box-shadow:0 8px 32px rgba(0,0,0,0.25);
+        opacity:0;transform:translateY(12px);
+        transition:opacity 0.25s ease,transform 0.25s ease;
+        pointer-events:none;
+    "></div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-box">
+            <div class="modal-title" id="modal-title">Add New Product</div>
+            <input type="hidden" id="edit-product-id">
+
+            <div class="modal-form-group">
+                <label>Product Name *</label>
+                <input type="text" id="p-name" placeholder="e.g. Velvet Matte Lipstick">
+            </div>
+            <div class="modal-form-row">
+                <div class="modal-form-group">
+                    <label>Category *</label>
+                    <select id="p-category">
+                        <option value="face">Face</option>
+                        <option value="eyes">Eyes</option>
+                        <option value="lips">Lips</option>
+                    </select>
+                </div>
+                <div class="modal-form-group">
+                    <label>Price (USD) *</label>
+                    <input type="number" id="p-price" placeholder="0.00" step="0.01" min="0">
+                </div>
+            </div>
+            <div class="modal-form-row">
+                <div class="modal-form-group">
+                    <label>Stock Quantity *</label>
+                    <input type="number" id="p-stock" placeholder="0" min="0">
+                </div>
+                <div class="modal-form-group">
+                    <label>Status</label>
+                    <select id="p-status">
+                        <option value="In Stock">In Stock</option>
+                        <option value="Low Stock">Low Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-form-group">
+                <label>Image URL</label>
+                <input type="text" id="p-image" placeholder="https://...">
+            </div>
+            <div class="modal-form-group">
+                <label>Description</label>
+                <textarea id="p-desc" rows="3" placeholder="Short product description..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-cancel-btn" class="btn-modal-cancel">Cancel</button>
+                <button id="modal-save-btn" class="btn-admin-primary">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Product Modal -->
+    <div class="modal-overlay" id="view-modal">
+        <div class="modal-box">
+            <div class="modal-title" id="view-modal-title">Product Details</div>
+            <div id="view-modal-body"></div>
+            <div class="modal-footer">
+                <button id="view-modal-close-btn" class="btn-modal-cancel">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="db-config.js"></script>
+    <script src="db.js"></script>
+    <script src="data.js?v=3"></script>
+    <script src="auth.js"></script>
+    <script>
+        // ── Toast helper ─────────────────────────────────────────────────────
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('admin-toast');
+            if (!toast) return;
+            toast.textContent = message;
+            toast.style.background = isError ? '#b44343' : '#1a1a1a';
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(12px)';
+            }, 3000);
+        }
+
+        // ── Product loading ──────────────────────────────────────────────────
+        async function getAdminProducts() {
+            if (window.lumeaProductsReady) await window.lumeaProductsReady;
+            
+            const KEY = window.LUMEA_ADMIN_PRODUCTS_KEY || 'lumea_admin_products';
+            const products = getProducts();
+
+            // Try to pull from Supabase if configured; fall back to localStorage
+            if (window.lumeaDB && window.lumeaDB.isReady()) {
+                try {
+                    const dbProducts = await window.lumeaDB.fetchProducts();
+                    if (dbProducts.length > 0) {
+                        localStorage.setItem(KEY, JSON.stringify(dbProducts));
+                        return dbProducts;
+                    }
+                } catch (error) {
+                    console.warn('Supabase unavailable, using local store:', error.message);
+                }
+            }
+
+            return products;
+        }
+
+        // ── Persist products ─────────────────────────────────────────────────
+        // Always writes to localStorage first (guaranteed), then tries Supabase
+        // as best-effort. If Supabase fails, the local write still stands.
+        async function saveAdminProducts(products, changedProduct = null, deletedProductId = null) {
+            const KEY = window.LUMEA_ADMIN_PRODUCTS_KEY || 'lumea_admin_products';
+            // 1. Local write — always succeeds
+            localStorage.setItem(KEY, JSON.stringify(products));
+
+            // 2. Supabase sync — optional, best-effort
+            if (window.lumeaDB && window.lumeaDB.isReady()) {
+                try {
+                    if (deletedProductId !== null) {
+                        await window.lumeaDB.deleteProduct(deletedProductId);
+                    }
+                    if (changedProduct) {
+                        await window.lumeaDB.upsertProduct(changedProduct);
+                    }
+                } catch (err) {
+                    console.warn('Supabase sync failed (local save succeeded):', err.message);
+                }
+            }
+        }
+
+        function getStockBadge(status) {
+            const cls = status === 'In Stock' ? 'in-stock' : status === 'Low Stock' ? 'low-stock' : 'out-stock';
+            return `<span class="badge badge-${cls}">${status}</span>`;
+        }
+
+        async function renderProducts() {
+            const products = await getAdminProducts();
+            const search = document.getElementById('product-search').value.toLowerCase();
+            const cat = document.getElementById('cat-filter').value;
+            const status = document.getElementById('status-filter').value;
+
+            const filtered = products.filter(p => {
+                const matchSearch = !search || p.name.toLowerCase().includes(search);
+                const matchCat = !cat || p.category === cat;
+                const matchStatus = !status || p.status === status;
+                return matchSearch && matchCat && matchStatus;
+            });
+
+            const tbody = document.getElementById('products-tbody');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#bbb;padding:40px;">No products found</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(p => {
+                const img = p.imageUrl || p.images?.[0] || '';
+                const imgEl = img && !img.includes('product-placeholder')
+                    ? `<img src="${img}" class="product-thumb" onerror="this.style.background='#f8f8f8';this.removeAttribute('src')">`
+                    : `<div class="product-thumb" style="display:flex;align-items:center;justify-content:center;background:#f5f3f0;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg></div>`;
+                return `
+                <tr>
+                    <td>
+                        <div class="product-cell">
+                            ${imgEl}
+                            <div>
+                                <div class="product-name">${p.name}</div>
+                                <div class="product-id">ID: ${p.id}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span style="text-transform:uppercase;font-size:0.8rem;font-weight:600;color:#888;">${p.category}</span></td>
+                    <td style="font-weight:600;">₱${parseFloat(p.price).toFixed(2)}</td>
+                    <td>${p.stock ?? '—'}</td>
+                    <td>${getStockBadge(p.status || 'In Stock')}</td>
+                    <td>
+                        <button class="action-btn" title="View" onclick="viewProduct('${p.id}')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                        <button class="action-btn" title="Edit" onclick="openEditModal('${p.id}')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </button>
+                        <button class="action-btn danger" title="Delete" onclick="deleteProduct('${p.id}')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"></path></svg>
+                        </button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        function openAddModal() {
+            document.getElementById('modal-title').textContent = 'Add New Product';
+            document.getElementById('edit-product-id').value = '';
+            document.getElementById('p-name').value = '';
+            document.getElementById('p-category').value = 'face';
+            document.getElementById('p-price').value = '';
+            document.getElementById('p-stock').value = '';
+            document.getElementById('p-status').value = 'In Stock';
+            document.getElementById('p-image').value = '';
+            document.getElementById('p-desc').value = '';
+            document.getElementById('product-modal').classList.add('open');
+        }
+
+        async function openEditModal(id) {
+            const products = await getAdminProducts();
+            const p = products.find(x => String(x.id) === String(id));
+            if (!p) return;
+            document.getElementById('modal-title').textContent = 'Edit Product';
+            document.getElementById('edit-product-id').value = id;
+            document.getElementById('p-name').value = p.name;
+            document.getElementById('p-category').value = p.category;
+            document.getElementById('p-price').value = p.price;
+            document.getElementById('p-stock').value = p.stock ?? '';
+            document.getElementById('p-status').value = p.status || 'In Stock';
+            document.getElementById('p-image').value = p.imageUrl || '';
+            document.getElementById('p-desc').value = p.description || '';
+            document.getElementById('product-modal').classList.add('open');
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.remove('open');
+        }
+
+        async function saveProduct() {
+            const name = document.getElementById('p-name').value.trim();
+            const category = document.getElementById('p-category').value;
+            const price = parseFloat(document.getElementById('p-price').value);
+            const stock = parseInt(document.getElementById('p-stock').value);
+            const status = document.getElementById('p-status').value;
+            const imageUrl = document.getElementById('p-image').value.trim();
+            const description = document.getElementById('p-desc').value.trim();
+            const editId = document.getElementById('edit-product-id').value;
+
+            if (!name || isNaN(price)) { alert('Please fill in all required fields.'); return; }
+
+            const products = await getAdminProducts();
+            let changedProduct = null;
+
+            if (editId) {
+                const idx = products.findIndex(p => String(p.id) === String(editId));
+                if (idx !== -1) {
+                    products[idx] = { ...products[idx], name, category, price, stock, status, imageUrl, description };
+                    changedProduct = products[idx];
+                }
+            } else {
+                const maxId = products.reduce((max, p) => Math.max(max, Number(p.id) || 0), 0);
+                const newId = maxId + 1;
+                changedProduct = { id: newId, name, category, price, stock, status, imageUrl, description, rating: 0, ratingCount: 0, featured: false, images: [] };
+                products.push(changedProduct);
+            }
+
+            try {
+                await saveAdminProducts(products, changedProduct, null);
+                closeModal();
+                await renderProducts();
+                showToast(editId ? '✓ Product updated successfully.' : '✓ Product added successfully.');
+            } catch (error) {
+                showToast(`Error: ${error.message}`, true);
+            }
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure you want to delete this product?')) return;
+            try {
+                const products = (await getAdminProducts()).filter(p => String(p.id) !== String(id));
+                await saveAdminProducts(products, null, id);
+                await renderProducts();
+                showToast('✓ Product deleted.');
+            } catch (error) {
+                showToast(`Error: ${error.message}`, true);
+            }
+        }
+
+        async function viewProduct(id) {
+            const p = (await getAdminProducts()).find(x => String(x.id) === String(id));
+            if (!p) return;
+            const img = p.imageUrl && !p.imageUrl.includes('placeholder') ? `<img src="${p.imageUrl}" style="width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:20px;">` : '';
+            document.getElementById('view-modal-title').textContent = p.name;
+            document.getElementById('view-modal-body').innerHTML = `
+                ${img}
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+                    <div><div style="font-size:0.78rem;color:#999;margin-bottom:4px;">CATEGORY</div><strong style="text-transform:capitalize;">${p.category}</strong></div>
+                    <div><div style="font-size:0.78rem;color:#999;margin-bottom:4px;">PRICE</div><strong>₱${parseFloat(p.price).toFixed(2)}</strong></div>
+                    <div><div style="font-size:0.78rem;color:#999;margin-bottom:4px;">STOCK</div><strong>${p.stock ?? 'N/A'}</strong></div>
+                    <div><div style="font-size:0.78rem;color:#999;margin-bottom:4px;">STATUS</div>${getStockBadge(p.status || 'In Stock')}</div>
+                </div>
+                ${p.description ? `<p style="color:#666;font-size:0.9rem;line-height:1.6;">${p.description}</p>` : ''}`;
+            document.getElementById('view-modal').classList.add('open');
+        }
+
+        function closeViewModal() {
+            document.getElementById('view-modal').classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = getCurrentUser();
+            if (!user || user.accountType !== 'admin') {
+                window.location.href = 'landing.html';
+                return;
+            }
+
+            // If Supabase credentials are not set, a console note is enough.
+            // All admin operations still work via localStorage.
+            if (!window.lumeaDB || !window.lumeaDB.isReady()) {
+                console.info('Supabase not configured — running in local-only mode. Products saved to localStorage.');
+            }
+
+            // Attach event listeners after DOM is loaded.
+            const addProductBtn = document.getElementById('add-product-btn');
+            if (addProductBtn) {
+                addProductBtn.addEventListener('click', openAddModal);
+            }
+
+            const modalSaveBtn = document.getElementById('modal-save-btn');
+            if (modalSaveBtn) {
+                modalSaveBtn.addEventListener('click', saveProduct);
+            }
+
+            const modalCancelBtn = document.getElementById('modal-cancel-btn');
+            if (modalCancelBtn) {
+                modalCancelBtn.addEventListener('click', closeModal);
+            }
+
+            const viewModalCloseBtn = document.getElementById('view-modal-close-btn');
+            if (viewModalCloseBtn) {
+                viewModalCloseBtn.addEventListener('click', closeViewModal);
+            }
+
+            const productModal = document.getElementById('product-modal');
+            if (productModal) {
+                productModal.addEventListener('click', e => {
+                    if (e.target === e.currentTarget) closeModal();
+                });
+            }
+
+            const viewModal = document.getElementById('view-modal');
+            if (viewModal) {
+                viewModal.addEventListener('click', e => {
+                    if (e.target === e.currentTarget) closeViewModal();
+                });
+            }
+
+            try {
+                await renderProducts();
+            } catch (error) {
+                const tbody = document.getElementById('products-tbody');
+                if (tbody) {
+                    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#b44343;padding:40px;">${error.message}</td></tr>`;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

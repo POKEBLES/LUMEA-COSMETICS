@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumea Admin — Orders</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="admin.css?v=2">
+</head>
+
+<body class="admin-body">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <a href="landing.html?v=3" class="admin-logo">
+            <img src="lumea logo.png" alt="Lumea" class="admin-logo-image">
+        </a>
+        <nav class="admin-nav">
+            <div class="admin-nav-label">Main</div>
+            <a href="admin-overview.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Overview
+            </a>
+            <a href="admin-products.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 01-8 0"></path>
+                </svg>
+                Products
+            </a>
+            <a href="admin-orders.html?v=3" class="admin-nav-item active">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                Orders
+            </a>
+            <a href="admin-users.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 010 7.75"></path>
+                </svg>
+                Users
+            </a>
+
+            
+            
+            <hr class="admin-nav-divider">
+            <div class="admin-nav-label">Account</div>
+            <a href="profile.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                My Profile
+            </a>
+            <a href="help.html?v=3" class="admin-nav-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Help
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+        <div class="admin-topbar">
+            <div class="admin-topbar-title">Orders</div>
+            <div class="admin-topbar-right">
+                <a href="profile.html?v=3" class="admin-back-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Back to Profile
+                </a>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <!-- Status filter tabs -->
+            <div class="status-tabs" id="status-tabs">
+                <div class="status-tab active" onclick="filterByStatus('')">
+                    <span class="status-tab-count" id="tab-total">0</span>
+                    <span class="status-tab-label">Total Orders</span>
+                </div>
+                <div class="status-tab" onclick="filterByStatus('Processing')">
+                    <span class="status-tab-count" id="tab-processing">0</span>
+                    <span class="status-tab-label">Processing</span>
+                </div>
+                <div class="status-tab" onclick="filterByStatus('Shipped')">
+                    <span class="status-tab-count" id="tab-shipped">0</span>
+                    <span class="status-tab-label">Shipped</span>
+                </div>
+                <div class="status-tab" onclick="filterByStatus('Delivered')">
+                    <span class="status-tab-count" id="tab-delivered">0</span>
+                    <span class="status-tab-label">Delivered</span>
+                </div>
+            </div>
+
+            <div class="admin-card">
+                <div class="admin-toolbar">
+                    <div class="admin-search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="order-search" placeholder="Search by order ID or customer..."
+                            oninput="renderOrders()">
+                    </div>
+                    <select class="admin-filter-select" id="order-status-filter" onchange="filterByStatus(this.value)">
+                        <option value="">All Status</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                </div>
+
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Order Modal -->
+    <div class="modal-overlay" id="view-order-modal">
+        <div class="modal-box">
+            <div class="modal-title" id="view-order-title">Order Details</div>
+            <div id="view-order-body"></div>
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" onclick="closeViewOrder()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Status Modal -->
+    <div class="modal-overlay" id="edit-order-modal">
+        <div class="modal-box" style="max-width:380px;">
+            <div class="modal-title">Update Order Status</div>
+            <input type="hidden" id="edit-order-id">
+            <p style="color:#888;font-size:0.9rem;margin-bottom:20px;">Change the fulfillment status for this order:</p>
+            <div class="modal-form-group">
+                <label>Status</label>
+                <select id="edit-order-status">
+                    <option value="Processing">Processing</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-cancel" onclick="closeEditOrder()">Cancel</button>
+                <button class="btn-admin-primary" onclick="saveOrderStatus()">Save Status</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="db-config.js"></script>
+    <script src="db.js"></script>
+    <script src="data.js?v=3"></script>
+    <script src="auth.js"></script>
+    <script>
+        let activeStatusFilter = '';
+
+        function getOrders() {
+            return JSON.parse(localStorage.getItem('lumea_orders') || '[]');
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem('lumea_orders', JSON.stringify(orders));
+        }
+
+        function getStatusBadgeClass(status) {
+            if (!status) return 'badge-processing';
+            return 'badge-' + status.toLowerCase().replace(' ', '-');
+        }
+
+        function filterByStatus(status) {
+            activeStatusFilter = status;
+            // Update tabs UI
+            document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+            const tabMap = { '': 0, 'Processing': 1, 'Shipped': 2, 'Delivered': 3 };
+            document.querySelectorAll('.status-tab')[tabMap[status] ?? 0].classList.add('active');
+            // Also sync the filter select
+            document.getElementById('order-status-filter').value = status;
+            renderOrders();
+        }
+
+        function renderOrders() {
+            const orders = getOrders();
+            const search = document.getElementById('order-search').value.toLowerCase();
+
+            // Count tabs
+            document.getElementById('tab-total').textContent = orders.length;
+            document.getElementById('tab-processing').textContent = orders.filter(o => o.status === 'Processing').length;
+            document.getElementById('tab-shipped').textContent = orders.filter(o => o.status === 'Shipped').length;
+            document.getElementById('tab-delivered').textContent = orders.filter(o => o.status === 'Delivered').length;
+
+            const filtered = orders.filter(o => {
+                const matchStatus = !activeStatusFilter || o.status === activeStatusFilter;
+                const matchSearch = !search || o.id.toLowerCase().includes(search) || (o.customerName || '').toLowerCase().includes(search);
+                return matchStatus && matchSearch;
+            });
+
+            const tbody = document.getElementById('orders-tbody');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#bbb;padding:48px;">No orders found</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(o => `
+                <tr>
+                    <td><strong>${o.id}</strong></td>
+                    <td>
+                        <div style="font-weight:600;">${o.customerName || 'Customer'}</div>
+                        <div style="font-size:0.78rem;color:#aaa;">${o.customerEmail || ''}</div>
+                    </td>
+                    <td style="color:#888;">${o.date}</td>
+                    <td>${(o.items || []).length}</td>
+                    <td style="font-weight:700;">₱${(o.total || 0).toFixed(2)}</td>
+                    <td><span class="badge badge-${(o.status || 'processing').toLowerCase()}">${o.status || 'Processing'}</span></td>
+                    <td>
+                        <button class="action-btn" title="View Order" onclick="viewOrder('${o.id}')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                        <button class="action-btn" title="Edit Status" onclick="openEditOrder('${o.id}', '${o.status}')">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </button>
+                    </td>
+                </tr>`).join('');
+        }
+
+        function viewOrder(id) {
+            const orders = getOrders();
+            const o = orders.find(x => x.id === id);
+            if (!o) return;
+            const itemsHtml = (o.items || []).map(item => `
+                <div class="order-detail-item">
+                    <img src="${item.imgUrl || ''}" style="width:44px;height:44px;border-radius:8px;object-fit:cover;background:#f8f8f8;border:1px solid #eee;" onerror="this.style.background='#f8f8f8';this.removeAttribute('src')">
+                    <div style="flex:1;">
+                        <div style="font-weight:600;font-size:0.9rem;">${item.name}</div>
+                        <div style="font-size:0.8rem;color:#aaa;">Qty: ${item.qty}</div>
+                    </div>
+                    <div style="font-weight:700;">₱${(item.price * item.qty).toFixed(2)}</div>
+                </div>`).join('');
+
+            document.getElementById('view-order-title').textContent = o.id;
+            document.getElementById('view-order-body').innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+                    <div style="color:#888;font-size:0.9rem;">Placed on ${o.date}</div>
+                    <span class="badge badge-${(o.status || 'processing').toLowerCase()}">${o.status}</span>
+                </div>
+                <div style="margin-bottom:20px;">${itemsHtml}</div>
+                <div style="border-top:2px solid #f0f0f0;padding-top:16px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#888;font-size:0.9rem;"><span>Subtotal</span><span>₱${(o.subtotal || 0).toFixed(2)}</span></div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#888;font-size:0.9rem;"><span>Shipping</span><span>₱${(o.shippingFee || 0).toFixed(2)}</span></div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#888;font-size:0.9rem;"><span>Tax (8%)</span><span>₱${(o.tax || 0).toFixed(2)}</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;margin-top:8px;"><span>Total</span><span style="color:#a08483;">₱${(o.total || 0).toFixed(2)}</span></div>
+                </div>`;
+            document.getElementById('view-order-modal').classList.add('open');
+        }
+
+        function closeViewOrder() {
+            document.getElementById('view-order-modal').classList.remove('open');
+        }
+
+        function openEditOrder(id, currentStatus) {
+            document.getElementById('edit-order-id').value = id;
+            document.getElementById('edit-order-status').value = currentStatus || 'Processing';
+            document.getElementById('edit-order-modal').classList.add('open');
+        }
+
+        function closeEditOrder() {
+            document.getElementById('edit-order-modal').classList.remove('open');
+        }
+
+        function saveOrderStatus() {
+            const id = document.getElementById('edit-order-id').value;
+            const newStatus = document.getElementById('edit-order-status').value;
+            const orders = getOrders();
+            const idx = orders.findIndex(o => o.id === id);
+            if (idx !== -1) {
+                orders[idx].status = newStatus;
+                saveOrders(orders);
+            }
+            closeEditOrder();
+            renderOrders();
+        }
+
+        // Close modals on overlay click
+        document.getElementById('view-order-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeViewOrder(); });
+        document.getElementById('edit-order-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeEditOrder(); });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getCurrentUser();
+            if (!user || user.accountType !== 'admin') { window.location.href = 'landing.html'; return; }
+            renderOrders();
+        });
+    </script>
+</body>
+
+</html>

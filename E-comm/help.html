@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumea - Help Center</title>
+    <meta name="description" content="Get help with your Lumea cosmetics orders.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="landing.css?v=2">
+    <link rel="stylesheet" href="auth.css?v=2">
+    <link rel="stylesheet" href="help.css">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Free shipping on orders over ₱50 | <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure Checkout
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-container" onclick="window.location.href='landing.html?v=3'">
+                <img src="lumea logo.png" alt="Lumea" class="logo-image">
+            </div>
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <div class="search-wrapper">
+                    <input type="text" placeholder="makeup" class="search-input" id="global-search-input">
+                    <!-- Dropdown for autocomplete suggestions -->
+                    <div class="search-suggestions-dropdown" id="search-suggestions-dropdown">
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="nav-profile-btn" aria-label="User Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="nav-wishlist-btn" aria-label="Wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="nav-cart-btn" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <nav class="header-bottom">
+            <ul class="nav-links">
+                <li><a href="landing.html?v=3">Home</a></li>
+                <li><a href="shop.html?v=3">All Products</a></li>
+                <li><a href="shop.html?category=face&v=3">Face</a></li>
+                <li><a href="shop.html?category=eyes&v=3">Eyes</a></li>
+                <li><a href="shop.html?category=lips&v=3">Lips</a></li>
+                <li><a href="help.html?v=3" class="active-link">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="help-page">
+
+            <!-- CONTACT US SECTION -->
+            <section class="help-section">
+                <h2 class="help-section-title">Contact Us</h2>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <div class="contact-title">Email</div>
+                        <div class="contact-desc">support@lumea.com</div>
+                    </div>
+
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <div class="contact-title">Phone</div>
+                        <div class="contact-desc">+63 900 000 0000</div>
+                    </div>
+
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                        </svg>
+                        <div class="contact-title">Live Chat</div>
+                        <div class="contact-desc">Start Chat</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="help-section">
+                <h2 class="help-section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-header">How do i track my order?</div>
+                        <div class="faq-content">
+                            <p>Once your order ships, you will receive a confirmation email with a tracking number. You
+                                can click on the tracking number in the email or log into your Lumea account and click
+                                'Order Tracking' under the help section or in your user profile menu to view real-time
+                                updates.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">What is the return policy?</div>
+                        <div class="faq-content">
+                            <p>We want you to love your purchase! If you're not completely satisfied, we accept returns
+                                on gently used items within 30 days of the purchase date. Please note that original
+                                shipping charges are non-refundable. Contact our support team to initiate a return.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">Do you ship Internationally?</div>
+                        <div class="faq-content">
+                            <p>Currently, we ship to the United States, Canada, the Philippines, and select countries in
+                                Europe. Standard free shipping is applied to orders over ₱50 within these regions. If
+                                your country is not listed at checkout, please reach out to us!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">How do i change my order?</div>
+                        <div class="faq-content">
+                            <p>If you need to change or cancel your order, please contact our support team immediately.
+                                We process orders rapidly to ensure fast delivery. While we cannot guarantee
+                                modifications once an order is placed, we will do our absolute best to accommodate your
+                                request if it has not yet shipped.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MESSAGE FORM SECTION -->
+            <section class="help-section">
+                <h2 class="help-section-title">Send Us a Message</h2>
+                <form class="help-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="help-name">Name</label>
+                            <input type="text" id="help-name" placeholder="Input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="help-email">Email</label>
+                            <input type="email" id="help-email" placeholder="Input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="help-subject">Subject</label>
+                        <select id="help-subject" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="order">Order Request</option>
+                            <option value="press">Press & PR</option>
+                            <option value="wholesale">Wholesale Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="help-message">Message</label>
+                        <textarea id="help-message" placeholder="Text Area" required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-form btn-submit">Send Message</button>
+                        <button type="reset" class="btn-form btn-reset">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">About Lumea</h4>
+                    <p class="footer-text">
+                        Premium makeup products crafted with care. Enhance your natural beauty with our thoughtfully
+                        designed collection.
+                    </p>
+                </div>
+
+                <!-- Column 2 (Interactive Links) -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?v=3">All Products</a></li>
+                        <li><a href="shop.html?category=face&v=3">Face</a></li>
+                        <li><a href="shop.html?category=eyes&v=3">Eyes</a></li>
+                        <li><a href="shop.html?category=lips&v=3">Lips</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 (Non-interactive anchors) -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html?v=3">Help Center</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="footer-subtext mt-4">Subscribe to our newsletter for exclusive offers</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lumea. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="db-config.js"></script>
+    <script src="db.js"></script>
+    <script src="data.js?v=3"></script>
+    <script src="auth.js"></script>
+    <script src="store.js"></script>
+    <script src="search.js"></script>
+    <script src="nav.js"></script>
+
+    <script>
+        // FAQ Accordion Toggle Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const header = item.querySelector('.faq-header');
+
+                header.addEventListener('click', () => {
+                    // Toggle current item
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items (optional)
+                    faqItems.forEach(el => el.classList.remove('active'));
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

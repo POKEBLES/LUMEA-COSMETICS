@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumea - Shop All Products</title>
+    <meta name="description" content="Discover premium makeup for every look">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="landing.css?v=2">
+    <link rel="stylesheet" href="shop.css?v=2">
+    <link rel="stylesheet" href="auth.css?v=2">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Free shipping on orders over ₱50 | <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure Checkout
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-top">
+            <a href="landing.html?v=3" class="logo-container">
+                <img src="lumea logo.png" alt="Lumea" class="logo-image">
+            </a>
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="makeup" value="makeup" class="search-input">
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="nav-profile-btn" aria-label="User Profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="nav-wishlist-btn" aria-label="Wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="nav-cart-btn" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <nav class="header-bottom">
+            <ul class="nav-links">
+                <li><a href="landing.html?v=3">Home</a></li>
+                <li><a href="shop.html?v=3">All Products</a></li>
+                <li><a href="shop.html?category=face&v=3">Face</a></li>
+                <li><a href="shop.html?category=eyes&v=3">Eyes</a></li>
+                <li><a href="shop.html?category=lips&v=3">Lips</a></li>
+                <li><a href="help.html?v=3">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="shop-main">
+        <!-- Shop Hero Banner -->
+        <section class="shop-hero">
+            <div class="shop-hero-content">
+                <h1 class="shop-title">Our Products</h1>
+                <p class="shop-subtitle">Discover premium makeup for every look</p>
+            </div>
+        </section>
+
+        <div class="shop-layout">
+            <!-- Left Sidebar Filtering -->
+            <aside class="shop-sidebar">
+                <div class="filter-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                    <h2>Filters</h2>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">Categories</h3>
+                    <div class="radio-options">
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="all" checked>
+                            <span class="custom-radio"></span>
+                            All
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="face">
+                            <span class="custom-radio"></span>
+                            Face
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="eyes">
+                            <span class="custom-radio"></span>
+                            Eyes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="category" value="lips">
+                            <span class="custom-radio"></span>
+                            Lips
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">Price Range</h3>
+                    <div class="price-slider-container">
+                        <div class="slider-track" id="slider-track">
+                            <div class="slider-fill" id="slider-fill"></div>
+                            <div class="slider-thumb min-thumb" id="min-thumb" tabindex="0"></div>
+                            <div class="slider-thumb max-thumb" id="max-thumb" tabindex="0"></div>
+                        </div>
+                        <div class="price-labels">
+                            <span id="min-price-label">₱0</span>
+                            <span id="max-price-label">₱100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">Availability</h3>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="in-stock-checkbox">
+                        <span class="custom-checkbox"></span>
+                        In Stock Only
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Right Content Area -->
+            <section class="shop-content">
+                <div class="shop-controls">
+                    <div class="product-count">
+                        Showing <strong id="product-count-num">0</strong> products
+                    </div>
+                    <div class="sort-container">
+                        <label for="sort-select">Sort by:</label>
+                        <div class="custom-select-wrapper">
+                            <select id="sort-select" class="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name-asc">Name: A-Z</option>
+                                <option value="rating">Top Rated</option>
+                            </select>
+                            <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-grid shop-grid" id="product-grid-container">
+                    <!-- Products will be injected here via JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">About Lumea</h4>
+                    <p class="footer-text">
+                        Premium makeup products crafted with care. Enhance your natural beauty with our thoughtfully
+                        designed collection.
+                    </p>
+                </div>
+
+                <!-- Column 2 (Interactive Links) -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html?v=3">All Products</a></li>
+                        <li><a href="shop.html?category=face&v=3">Face</a></li>
+                        <li><a href="shop.html?category=eyes&v=3">Eyes</a></li>
+                        <li><a href="shop.html?category=lips&v=3">Lips</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 (Non-interactive anchors) -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html?v=3">Help Center</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="footer-subtext mt-4">Subscribe to our newsletter for exclusive offers</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lumea. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Dynamic Filtering/Sorting -->
+    <script src="db-config.js"></script>
+    <script src="db.js"></script>
+    <script src="data.js?v=3"></script>
+    <script src="auth.js"></script>
+    <script src="store.js"></script>
+    <script src="search.js"></script>
+    <script src="shop.js"></script>
+    <script src="nav.js"></script>
+</body>
+
+</html>
